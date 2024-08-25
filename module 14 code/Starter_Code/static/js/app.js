@@ -17,7 +17,7 @@ function buildMetadata(sample) {
     // Inside a loop, you will need to use d3 to append new
     // tags for each key-value in the filtered metadata.
     let keys = Object.keys(data_subject)
-    let panel_ul = panel.append("ul")
+    let panel_h6 = panel.append("h6")
     for (i = 0; i < keys.length; i++ ) {
         let key = keys[i]
         let value = data_subject[key]
@@ -76,8 +76,8 @@ function buildCharts(sample_function) {
     // Don't forget to slice and reverse the input data appropriately
     let barData = [{
       y: yticks,
-      x: sample_values.slice(0, 10).reverse(),
       text: otu_labels.slice(0, 10).reverse(),
+      x: sample_values.slice(0, 10).reverse(),
       type: 'bar',
       orientation: 'h',
     }];
