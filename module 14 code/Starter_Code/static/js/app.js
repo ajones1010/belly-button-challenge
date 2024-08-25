@@ -16,6 +16,8 @@ function buildMetadata(sample) {
 
     // Inside a loop, you will need to use d3 to append new
     // tags for each key-value in the filtered metadata.
+    let key = Object.keys(data_subject)
+    let value = panel.append('ul')
     if (data_subject.length > 0) {
       Object.entries(data_subject[0]).forEach(([key, value]) => {
         panel.append('p').text(`${key}: ${value}`);
