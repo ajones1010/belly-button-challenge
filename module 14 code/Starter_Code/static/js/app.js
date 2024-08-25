@@ -20,7 +20,10 @@ function buildMetadata(sample) {
     Object.entries(data_subject[0]).forEach(([key, value]) => {
       panel.append("p").text(`${key}: ${value}`);
     });
-  }});
+  }
+    // Close the metadata panel div tag
+    panel.append("div").attr("id", "sample-metadata");
+});
 }
 
 // function to build both charts
