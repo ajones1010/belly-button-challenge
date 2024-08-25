@@ -18,13 +18,9 @@ function buildMetadata(sample) {
     // tags for each key-value in the filtered metadata.
     if (data_subject.length > 0) {
       Object.entries(data_subject[0]).forEach(([key, value]) => {
-        panel.append("p").text(`${key}: ${value}`);
+        panel.append('p').text(`${key}: ${value}`);
       });
     }
-
-    // Close the metadata panel div tag
-    panel.append("div").attr("id", "sample-metadata");
-
   }).catch((error) => {
     console.error("Error loading data: ", error);
   });
