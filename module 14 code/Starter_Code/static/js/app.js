@@ -6,7 +6,7 @@ function buildMetadata(sample) {
     let metadata = data.metadata;
 
     // Filter the metadata for the object with the desired sample number
-    let data_subject = metadata.filter((metadata_object) => metadata_object.id == sample);
+    let data_subject = metadata.find((metadata_object) => metadata_object.id == sample);
   
     // Use d3 to select the panel with id of `#sample-metadata`
     let panel = d3.select('#sample-metadata');
@@ -16,15 +16,17 @@ function buildMetadata(sample) {
 
     // Inside a loop, you will need to use d3 to append new
     // tags for each key-value in the filtered metadata.
-    let key = Object.keys(data_subject)
-    let value = panel.append('ul')
-    if (data_subject.length > 0) {
-      Object.entries(data_subject[0]).forEach(([key, value]) => {
-        panel.append('p').text(`${key}: ${value}`);
-      });
+    let keys = Object.keys(data_subject)
+    let panel_ul = panel.append("ul")
+    for (i = 0; i < keys.length; i++ ) {
+        let key = keys[i]
+        let value = data_subject[key]
+        let card_content = `${key.toUpperCase()} : ${value}`
+        console.log(card_content)
+        metadata_panel_ul.append('li').text(card_content).attr("class", "list-group-item")
+    
     }
-  }).catch((error) => {
-    console.error("Error loading data: ", error);
+
   });
 }
 
