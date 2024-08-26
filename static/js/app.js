@@ -23,7 +23,7 @@ function buildMetadata(sample) {
         let value = data_subject[key]
         let card_content = `${key.toUpperCase()} : ${value}`
         console.log(card_content)
-        metadata_panel_ul.append('li').text(card_content).attr("class", "list-group-item")
+        panel_h6.append('li').text(card_content).attr("class", "list-group-item")
     
     }
 
